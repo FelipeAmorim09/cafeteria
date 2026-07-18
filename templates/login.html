@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}Login — Cafeteria{% endblock %}
+
+{% block body_class %}auth-page{% endblock %}
+
+{% block content %}
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <div class="row g-0">
+            <div class="col-md-5 d-none d-md-block">
+                <div class="auth-side">
+                    <img src="{{ url_for('static', filename='imagens/logo_café-removebg-preview.png') }}" alt="Logo da Cafeteria">
+                    <h2>Que bom te ver de novo!</h2>
+                    <p>Entre para acompanhar seu perfil e aproveitar o melhor do nosso café.</p>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="auth-form">
+                    <h1>Login</h1>
+                    <form action="{{ url_for('login') }}" method="POST" novalidate>
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                   placeholder="voce@exemplo.com" required autocomplete="email" autofocus>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="senha" class="form-label">Senha</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="senha" name="password"
+                                       placeholder="Sua senha" required autocomplete="current-password">
+                                <button class="btn" type="button" id="toggleSenha" aria-label="Mostrar ou ocultar senha">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-cafe w-100 btn-lg">
+                            <i class="bi bi-box-arrow-in-right me-2"></i>Entrar
+                        </button>
+                    </form>
+
+                    <p class="text-center mt-4 mb-0">
+                        Ainda não tem conta?
+                        <a href="{{ url_for('cadastro') }}" class="auth-link">Cadastre-se</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    document.getElementById('toggleSenha').addEventListener('click', function () {
+        const campo = document.getElementById('senha');
+        const icone = this.querySelector('i');
+        const mostrar = campo.type === 'password';
+        campo.type = mostrar ? 'text' : 'password';
+        icone.className = mostrar ? 'bi bi-eye-slash' : 'bi bi-eye';
+    });
+</script>
+{% endblock %}

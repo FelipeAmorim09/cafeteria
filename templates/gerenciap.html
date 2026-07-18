@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Meu Perfil — Cafeteria{% endblock %}
+
+{% block content %}
+<div class="page-wrapper">
+    <div class="profile-card mb-4">
+        <div class="profile-header">
+            <img src="{{ usuario.profileImageUrl }}" alt="Foto de perfil" class="profile-avatar">
+            <div class="flex-grow-1">
+                <h1>{{ usuario.username }}</h1>
+                <p class="text-muted mb-2">Gerencie as informações do seu perfil</p>
+                <a href="{{ url_for('editar_perfil') }}" class="btn btn-cafe btn-sm">
+                    <i class="bi bi-pencil-square me-1"></i>Editar Perfil
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-card mb-4">
+        <h4 class="mb-3"><i class="bi bi-chat-left-text me-2"></i>Descrição</h4>
+        <p class="mb-0 {% if not usuario.descricao %}text-muted{% endif %}">
+            {{ usuario.descricao or 'Nenhuma descrição fornecida ainda.' }}
+        </p>
+    </div>
+
+    <div class="profile-card">
+        <h4 class="mb-2"><i class="bi bi-person-lines-fill me-2"></i>Informações Adicionais</h4>
+        <div class="info-linha">
+            <span class="rotulo">Data de Nascimento</span>
+            <span class="valor">{{ usuario.data_nascimento or 'Não fornecida.' }}</span>
+        </div>
+        <div class="info-linha">
+            <span class="rotulo">Gênero</span>
+            <span class="valor">{{ usuario.genero or 'Não fornecido.' }}</span>
+        </div>
+        <div class="info-linha">
+            <span class="rotulo">Biografia</span>
+            <span class="valor">{{ usuario.biografia or 'Nenhuma biografia disponível.' }}</span>
+        </div>
+        <a href="{{ url_for('editar_perfil') }}" class="btn btn-outline-cafe btn-sm mt-3">
+            <i class="bi bi-pencil me-1"></i>Editar Informações
+        </a>
+    </div>
+</div>
+{% endblock %}

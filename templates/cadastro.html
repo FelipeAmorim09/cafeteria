@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+
+{% block title %}Cadastro — Cafeteria{% endblock %}
+
+{% block body_class %}auth-page{% endblock %}
+
+{% block content %}
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <div class="row g-0">
+            <div class="col-md-5 d-none d-md-block">
+                <div class="auth-side">
+                    <img src="{{ url_for('static', filename='imagens/logo_café-removebg-preview.png') }}" alt="Logo da Cafeteria">
+                    <h2>Junte-se a nós!</h2>
+                    <p>Crie sua conta para uma experiência completa: perfil próprio, novidades e muito café.</p>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="auth-form">
+                    <h1>Cadastro</h1>
+                    <form method="post" enctype="multipart/form-data" action="{{ url_for('cadastro') }}" novalidate>
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                        <div class="text-center mb-4">
+                            <img id="imagePreview" src="{{ url_for('static', filename='imagens/default_avatar.png') }}"
+                                 alt="Prévia da foto de perfil" class="avatar-preview d-block mx-auto mb-2">
+                            <input type="file" class="d-none" id="profilePhoto" name="profile_image" accept="image/png, image/jpeg, image/gif, image/webp">
+                            <button type="button" class="btn btn-outline-cafe btn-sm" id="selectImageBtn">
+                                <i class="bi bi-camera me-1"></i>Escolher foto de perfil
+                            </button>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Usuário</label>
+                            <input type="text" class="form-control" id="username" name="username"
+                                   placeholder="Como devemos te chamar?" required autocomplete="username"
+                                   minlength="3" maxlength="50">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                   placeholder="voce@exemplo.com" required autocomplete="email">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="uf" class="form-label">Estado (UF)</label>
+                            <select class="form-select" id="uf" name="uf" required>
+                                <option value="">Selecione o estado</option>
+                                <option value="AC">Acre (AC)</option>
+                                <option value="AL">Alagoas (AL)</option>
+                                <option value="AP">Amapá (AP)</option>
+                                <option value="AM">Amazonas (AM)</option>
+                                <option value="BA">Bahia (BA)</option>
+                                <option value="CE">Ceará (CE)</option>
+                                <option value="DF">Distrito Federal (DF)</option>
+                                <option value="ES">Espírito Santo (ES)</option>
+                                <option value="GO">Goiás (GO)</option>
+                                <option value="MA">Maranhão (MA)</option>
+                                <option value="MT">Mato Grosso (MT)</option>
+                                <option value="MS">Mato Grosso do Sul (MS)</option>
+                                <option value="MG">Minas Gerais (MG)</option>
+                                <option value="PA">Pará (PA)</option>
+                                <option value="PB">Paraíba (PB)</option>
+                                <option value="PR">Paraná (PR)</option>
+                                <option value="PE">Pernambuco (PE)</option>
+                                <option value="PI">Piauí (PI)</option>
+                                <option value="RJ">Rio de Janeiro (RJ)</option>
+                                <option value="RN">Rio Grande do Norte (RN)</option>
+                                <option value="RS">Rio Grande do Sul (RS)</option>
+                                <option value="RO">Rondônia (RO)</option>
+                                <option value="RR">Roraima (RR)</option>
+                                <option value="SC">Santa Catarina (SC)</option>
+                                <option value="SP">São Paulo (SP)</option>
+                                <option value="SE">Sergipe (SE)</option>
+                                <option value="TO">Tocantins (TO)</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Senha</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="password" name="password"
+                                       placeholder="Mínimo 8 caracteres, com letras e números" required
+                                       autocomplete="new-password" aria-describedby="passwordHelp">
+                                <button class="btn" type="button" id="toggleSenha" aria-label="Mostrar ou ocultar senha">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                            <div class="strength-meter" aria-hidden="true"><div id="strengthBar"></div></div>
+                            <div id="password-strength" class="form-text"></div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="confirmPassword" class="form-label">Confirmação de senha</label>
+                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                                   placeholder="Repita a senha" required autocomplete="new-password">
+                            <div id="confirmFeedback" class="form-text"></div>
+                        </div>
+
+                        <button type="submit" class="btn btn-cafe w-100 btn-lg">
+                            <i class="bi bi-person-plus me-2"></i>Cadastrar
+                        </button>
+                    </form>
+
+                    <p class="text-center mt-4 mb-0">
+                        Já tem conta?
+                        <a href="{{ url_for('login') }}" class="auth-link">Faça login</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block extra_scripts %}
+<script src="https://cdn.jsdelivr.net/npm/zxcvbn@4.4.2/dist/zxcvbn.js"></script>
+<script>
+    // Seleção e prévia da foto de perfil
+    document.getElementById('selectImageBtn').addEventListener('click', () => {
+        document.getElementById('profilePhoto').click();
+    });
+
+    document.getElementById('profilePhoto').addEventListener('change', event => {
+        const file = event.target.files[0];
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = () => { document.getElementById('imagePreview').src = reader.result; };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // Mostrar / ocultar senha
+    document.getElementById('toggleSenha').addEventListener('click', function () {
+        const campo = document.getElementById('password');
+        const icone = this.querySelector('i');
+        const mostrar = campo.type === 'password';
+        campo.type = mostrar ? 'text' : 'password';
+        icone.className = mostrar ? 'bi bi-eye-slash' : 'bi bi-eye';
+    });
+
+    // Medidor de força da senha (zxcvbn)
+    const nivelForca = [
+        { texto: 'Senha muito fraca', cor: '#dc3545', largura: '20%' },
+        { texto: 'Senha fraca',       cor: '#fd7e14', largura: '40%' },
+        { texto: 'Senha moderada',    cor: '#e8a33d', largura: '60%' },
+        { texto: 'Senha forte',       cor: '#198754', largura: '80%' },
+        { texto: 'Senha muito forte', cor: '#146c43', largura: '100%' }
+    ];
+
+    document.getElementById('password').addEventListener('input', function () {
+        const barra = document.getElementById('strengthBar');
+        const texto = document.getElementById('password-strength');
+        if (!this.value) {
+            barra.style.width = '0';
+            texto.textContent = '';
+            return;
+        }
+        const nivel = nivelForca[zxcvbn(this.value).score];
+        barra.style.width = nivel.largura;
+        barra.style.backgroundColor = nivel.cor;
+        texto.textContent = nivel.texto;
+        texto.style.color = nivel.cor;
+    });
+
+    // Confirmação de senha em tempo real
+    function conferirSenhas() {
+        const senha = document.getElementById('password').value;
+        const confirma = document.getElementById('confirmPassword').value;
+        const feedback = document.getElementById('confirmFeedback');
+        if (!confirma) { feedback.textContent = ''; return true; }
+        const ok = senha === confirma;
+        feedback.textContent = ok ? 'As senhas coincidem ✓' : 'As senhas não coincidem';
+        feedback.style.color = ok ? '#198754' : '#dc3545';
+        return ok;
+    }
+    document.getElementById('confirmPassword').addEventListener('input', conferirSenhas);
+    document.getElementById('password').addEventListener('input', conferirSenhas);
+
+    document.querySelector('form').addEventListener('submit', (e) => {
+        if (!conferirSenhas() || !document.getElementById('confirmPassword').value) {
+            e.preventDefault();
+            alert('As senhas não coincidem!');
+        }
+    });
+</script>
+{% endblock %}

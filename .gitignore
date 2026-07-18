@@ -1,0 +1,21 @@
+# Segredos e configuração local — NUNCA versionar
+.env
+
+# Banco de dados local
+instance/
+*.db
+*.sqlite3
+
+# Uploads de usuários (conteúdo gerado em runtime)
+static/uploads/*
+!static/uploads/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDEs
+.idea/
+.vscode/

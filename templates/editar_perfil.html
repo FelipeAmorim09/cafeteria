@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar Perfil — Cafeteria{% endblock %}
+
+{% block content %}
+<div class="page-wrapper">
+    <div class="profile-card">
+        <h1 class="mb-4"><i class="bi bi-pencil-square me-2"></i>Editar Perfil</h1>
+
+        <form action="{{ url_for('editar_perfil') }}" method="post" enctype="multipart/form-data" class="auth-form p-0">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+            <div class="text-center mb-4">
+                <img id="imagePreview" src="{{ usuario.profileImageUrl }}"
+                     alt="Foto de perfil atual" class="avatar-preview d-block mx-auto mb-2">
+                <input type="file" class="d-none" id="profile_image" name="profile_image" accept="image/png, image/jpeg, image/gif, image/webp">
+                <button type="button" class="btn btn-outline-cafe btn-sm" id="selectImageBtn">
+                    <i class="bi bi-camera me-1"></i>Trocar foto
+                </button>
+            </div>
+
+            <div class="mb-3">
+                <label for="user" class="form-label">Nome de usuário</label>
+                <input type="text" class="form-control" id="user" name="user"
+                       value="{{ usuario.username }}" placeholder="Digite seu nome"
+                       minlength="3" maxlength="50">
+            </div>
+
+            <div class="mb-3">
+                <label for="descricao" class="form-label">Descrição</label>
+                <textarea class="form-control" id="descricao" name="descricao" rows="3" maxlength="500"
+                          placeholder="Digite alguma coisa...">{{ usuario.descricao }}</textarea>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="data_nascimento" class="form-label">Data de nascimento</label>
+                    <input type="date" class="form-control" id="data_nascimento" name="data_nascimento"
+                           value="{{ usuario.data_nascimento }}">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="genero" class="form-label">Gênero</label>
+                    <select class="form-select" id="genero" name="genero">
+                        <option value="" {% if not usuario.genero %}selected{% endif %}>Prefiro não informar</option>
+                        <option value="Masculino" {% if usuario.genero == 'Masculino' %}selected{% endif %}>Masculino</option>
+                        <option value="Feminino" {% if usuario.genero == 'Feminino' %}selected{% endif %}>Feminino</option>
+                        <option value="Outro" {% if usuario.genero == 'Outro' %}selected{% endif %}>Outro</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label for="biografia" class="form-label">Biografia</label>
+                <textarea class="form-control" id="biografia" name="biografia" rows="4" maxlength="1000"
+                          placeholder="Escreva algo sobre você...">{{ usuario.biografia }}</textarea>
+            </div>
+
+            <div class="d-flex flex-column flex-sm-row gap-2">
+                <button type="submit" class="btn btn-cafe">
+                    <i class="bi bi-check-lg me-1"></i>Salvar Alterações
+                </button>
+                <a href="{{ url_for('gerenciap') }}" class="btn btn-outline-cafe">
+                    <i class="bi bi-x-lg me-1"></i>Cancelar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    document.getElementById('selectImageBtn').addEventListener('click', () => {
+        document.getElementById('profile_image').click();
+    });
+
+    document.getElementById('profile_image').addEventListener('change', event => {
+        const file = event.target.files[0];
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = () => { document.getElementById('imagePreview').src = reader.result; };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+{% endblock %}

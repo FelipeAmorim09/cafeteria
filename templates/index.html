@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+
+{% block title %}Cafeteria — Bem-vindo{% endblock %}
+
+{% block content %}
+    <!-- Hero / Carrossel -->
+    <section class="hero">
+        <div id="cafeteriaCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#cafeteriaCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Imagem 1"></button>
+                <button type="button" data-bs-target="#cafeteriaCarousel" data-bs-slide-to="1" aria-label="Imagem 2"></button>
+                <button type="button" data-bs-target="#cafeteriaCarousel" data-bs-slide-to="2" aria-label="Imagem 3"></button>
+                <button type="button" data-bs-target="#cafeteriaCarousel" data-bs-slide-to="3" aria-label="Imagem 4"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ url_for('static', filename='imagens/carrossel02.jpeg') }}" class="d-block w-100 carousel-image" alt="Ambiente da cafeteria">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='imagens/carrossel01.jpeg') }}" class="d-block w-100 carousel-image" alt="Café sendo preparado">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='imagens/carrossel03.jpeg') }}" class="d-block w-100 carousel-image" alt="Grãos de café">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='imagens/carrossel04.jpeg') }}" class="d-block w-100 carousel-image" alt="Xícara de café">
+                </div>
+            </div>
+            <div class="carousel-caption">
+                <h1>Bem-vindo à nossa Cafeteria!</h1>
+                <p>Confira nosso menu, e faça já seu pedido!</p>
+                <a href="{{ url_for('menu') }}" class="btn btn-cafe btn-lg">
+                    <i class="bi bi-cup-hot me-2"></i>Ver o Menu
+                </a>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#cafeteriaCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#cafeteriaCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Iguarias da casa -->
+    <section class="section container-xl">
+        <h2 class="section-title">Iguarias da casa</h2>
+        <p class="section-subtitle">Feitas com carinho, servidas com um sorriso</p>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='imagens/Cafe-gelado-1.jpg') }}" class="card-img-top" alt="Café Especial">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Café Especial</h5>
+                        <p class="card-text flex-grow-1">Uma mistura única de grãos selecionados, torrados na perfeição para um sabor incomparável.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='imagens/milkcoffee.jpeg') }}" class="card-img-top" alt="Coffeelee">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Coffeelee</h5>
+                        <p class="card-text flex-grow-1">Deliciosos bolos e tortas feitos com ingredientes frescos e de alta qualidade.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='imagens/cafe-personalizado.jpg') }}" class="card-img-top" alt="Café personalizado">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Personalizado</h5>
+                        <p class="card-text flex-grow-1">Sanduíches artesanais com uma combinação perfeita de sabores e ingredientes premium.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="section container-xl">
+        <h2 class="section-title">O que nossos clientes dizem</h2>
+        <p class="section-subtitle">Histórias de quem já provou nosso café</p>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <blockquote>"O melhor café que já provei! Atendimento excepcional."</blockquote>
+                    <div class="testimonial-autor">
+                        <div class="autor-inicial">J</div>
+                        <p class="autor-nome">João Silva</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <blockquote>"Os bolos são incríveis! Volto sempre para experimentar novos sabores."</blockquote>
+                    <div class="testimonial-autor">
+                        <div class="autor-inicial">M</div>
+                        <p class="autor-nome">Maria Oliveira</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                    </div>
+                    <blockquote>"Ambiente acolhedor e os sanduíches são de dar água na boca."</blockquote>
+                    <div class="testimonial-autor">
+                        <div class="autor-inicial">C</div>
+                        <p class="autor-nome">Carlos Souza</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria de Imagens -->
+    <section class="section container-xl">
+        <h2 class="section-title">Galeria de Imagens</h2>
+        <p class="section-subtitle">Um gostinho do nosso dia a dia</p>
+        <div class="row g-4">
+            <div class="col-md-4 col-sm-6">
+                <div class="galeria-item">
+                    <img src="{{ url_for('static', filename='imagens/galery01.jpeg') }}" alt="Foto da cafeteria 1">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="galeria-item">
+                    <img src="{{ url_for('static', filename='imagens/galery02.jpeg') }}" alt="Foto da cafeteria 2">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="galeria-item">
+                    <img src="{{ url_for('static', filename='imagens/galery03.jpeg') }}" alt="Foto da cafeteria 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vídeo -->
+    <section class="section container-xl pb-4">
+        <h2 class="section-title">Nossa paixão em movimento</h2>
+        <p class="section-subtitle">Assista e sinta o aroma daqui</p>
+        <div class="video-wrapper">
+            <video controls preload="metadata">
+                <source src="{{ url_for('static', filename='imagens/AI-cofee.mp4') }}" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+        </div>
+    </section>
+{% endblock %}

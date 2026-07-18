@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+
+{% block title %}Menu — Cafeteria{% endblock %}
+
+{% block content %}
+    <section class="section container-xl">
+        <h1 class="section-title">Nosso Menu</h1>
+        <p class="section-subtitle">Grãos selecionados, receitas com alma. Escolha o seu favorito!</p>
+
+        <!-- Cafés Quentes -->
+        <h3 class="mt-4 mb-3"><i class="bi bi-cup-hot-fill me-2"></i>Cafés Quentes</h3>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='imagens/img03.png') }}" class="card-img-top" alt="Espresso intenso">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="card-title mb-0">Espresso</h5>
+                            <span class="preco">R$ 7,50</span>
+                        </div>
+                        <p class="card-text flex-grow-1">Curto, encorpado e intenso — o clássico de todo dia.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='imagens/galeria3.png') }}" class="card-img-top" alt="Café coado da casa">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="card-title mb-0">Coado da Casa</h5>
+                            <span class="preco">R$ 8,90</span>
+                        </div>
+                        <p class="card-text flex-grow-1">Passado na hora, servido com um cookie de cortesia.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='imagens/galeria1.jpeg') }}" class="card-img-top" alt="Cappuccino clássico">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="card-title mb-0">Cappuccino</h5>
+                            <span class="preco">R$ 12,90</span>
+                        </div>
+                        <p class="card-text flex-grow-1">Espuma cremosa e latte art feita pelos nossos baristas.</p>
+                        <span class="badge-menu align-self-start"><i class="bi bi-fire me-1"></i>Mais pedido</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='imagens/galeria4.jpeg') }}" class="card-img-top" alt="Cappuccino de inverno">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="card-title mb-0">Cappuccino de Inverno</h5>
+                            <span class="preco">R$ 15,90</span>
+                        </div>
+                        <p class="card-text flex-grow-1">Com toque de canela e biscoitos amanteigados.</p>
+                        <span class="badge-menu align-self-start"><i class="bi bi-snow me-1"></i>Sazonal</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gelados -->
+        <h3 class="mt-5 mb-3"><i class="bi bi-snow2 me-2"></i>Gelados</h3>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='imagens/galeria2.png') }}" class="card-img-top" alt="Iced latte com macarons">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="card-title mb-0">Iced Latte</h5>
+                            <span class="preco">R$ 14,90</span>
+                        </div>
+                        <p class="card-text flex-grow-1">Leite gelado, espresso duplo e muito frescor. Acompanha macaron.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='imagens/Cafe-gelado-1.jpg') }}" class="card-img-top" alt="Café gelado">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="card-title mb-0">Café Gelado</h5>
+                            <span class="preco">R$ 13,90</span>
+                        </div>
+                        <p class="card-text flex-grow-1">Refrescante e aromático, perfeito para dias quentes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='imagens/milkcoffee.jpeg') }}" class="card-img-top" alt="Milk coffee">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="card-title mb-0">Milk Coffee</h5>
+                            <span class="preco">R$ 12,90</span>
+                        </div>
+                        <p class="card-text flex-grow-1">Suave, cremoso e docinho na medida certa.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='imagens/cafe-personalizado.jpg') }}" class="card-img-top" alt="Café personalizado">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="card-title mb-0">Personalizado</h5>
+                            <span class="preco">R$ 16,90</span>
+                        </div>
+                        <p class="card-text flex-grow-1">Monte o seu: escolha o grão, o leite e a finalização.</p>
+                        <span class="badge-menu align-self-start"><i class="bi bi-stars me-1"></i>Especial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Para viagem -->
+        <h3 class="mt-5 mb-3"><i class="bi bi-bag-heart me-2"></i>Para Viagem</h3>
+        <div class="row g-4 mb-3">
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='imagens/img02.png') }}" class="card-img-top" alt="Café para viagem">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="card-title mb-0">Café To-Go</h5>
+                            <span class="preco">R$ 9,90</span>
+                        </div>
+                        <p class="card-text flex-grow-1">Seu favorito em copo térmico, pronto para acompanhar o seu dia.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='imagens/img01.png') }}" class="card-img-top" alt="Café com vista">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="card-title mb-0">Café da Manhã</h5>
+                            <span class="preco">R$ 24,90</span>
+                        </div>
+                        <p class="card-text flex-grow-1">Combo com café especial, pão na chapa e suco natural.</p>
+                        <span class="badge-menu align-self-start"><i class="bi bi-sunrise me-1"></i>Até 11h</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
