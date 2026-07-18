@@ -4,6 +4,10 @@ Aplicação web de uma cafeteria com página institucional, cadastro/login de
 usuários, perfil editável com foto e painel de administração — construída com
 foco em **boas práticas de segurança**.
 
+🌐 **[Vitrine online (GitHub Pages)](https://felipeamorim09.github.io/cafeteria/)** —
+demonstração visual da home e do cardápio. Login, cadastro e painel admin
+precisam do servidor Flask: rode localmente seguindo os passos abaixo.
+
 ## Funcionalidades
 
 - Página inicial com carrossel, galeria, depoimentos e vídeo
