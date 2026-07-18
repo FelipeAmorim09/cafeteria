@@ -51,12 +51,14 @@ python -m venv .venv
 .venv\Scripts\activate        # Windows
 pip install -r requirements.txt
 
-# 3. (Opcional) configure variáveis de ambiente
-copy .env.example .env
-
-# 4. Rode
+# 3. Rode
 python app.py
 ```
+
+> **Variáveis de ambiente (opcionais):** crie um arquivo `.env` na raiz com
+> `SECRET_KEY=...`, `FLASK_DEBUG=1` ou `SESSION_COOKIE_SECURE=1` se quiser
+> personalizar. Sem ele, a aplicação gera uma `SECRET_KEY` aleatória
+> automaticamente no primeiro run. O `.env` é ignorado pelo git.
 
 Acesse **http://127.0.0.1:5000**.
 
