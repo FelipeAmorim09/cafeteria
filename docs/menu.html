@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu — Cafeteria</title>
+    <link rel="icon" href="static/imagens/logo_caf%C3%A9-removebg-preview.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/styles.css">
+    
+</head>
+<body class="">
+
+    <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
+        <div class="container-xl">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img src="static/imagens/logo_caf%C3%A9-removebg-preview.png" alt="Logo da Cafeteria">
+                <span class="brand-name">Cafeteria</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menu de navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link " href="index.html">
+                            <i class="bi bi-house-door me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="menu.html">
+                            <i class="bi bi-cup-hot me-1"></i>Menu
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#sobre">
+                            <i class="bi bi-info-circle me-1"></i>Sobre
+                        </a>
+                    </li>
+                </ul>
+
+                
+                <div class="d-flex flex-column flex-lg-row gap-2 auth-actions"><a class="btn btn-cafe" href="https://github.com/FelipeAmorim09/cafeteria" target="_blank" rel="noopener"><i class="bi bi-github me-1"></i>Código no GitHub</a></div>
+                
+            </div>
+        </div>
+    </nav>
+
+    <div class="flash-area container-xl">
+        
+            
+        
+    </div>
+
+    <main>
+        
+    <section class="section container-xl">
+        <h1 class="section-title">Nosso Menu</h1>
+        <p class="section-subtitle">Grãos selecionados, receitas com alma. Escolha o seu favorito!</p>
+
+        <!-- Cafés Quentes -->
+        <h3 class="mt-4 mb-3"><i class="bi bi-cup-hot-fill me-2"></i>Cafés Quentes</h3>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <img src="static/imagens/img03.png" class="card-img-top" alt="Espresso intenso">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="card-title mb-0">Espresso</h5>
+                            <span class="preco">R$ 7,50</span>
+                        </div>
+                        <p class="card-text flex-grow-1">Curto, encorpado e intenso — o clássico de todo dia.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <img src="static/imagens/galeria3.png" class="card-img-top" alt="Café coado da casa">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="card-title mb-0">Coado da Casa</h5>
+                            <span class="preco">R$ 8,90</span>
+                        </div>
+                        <p class="card-text flex-grow-1">Passado na hora, servido com um cookie de cortesia.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <img src="static/imagens/galeria1.jpeg" class="card-img-top" alt="Cappuccino clássico">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="card-title mb-0">Cappuccino</h5>
+                            <span class="preco">R$ 12,90</span>
+                        </div>
+                        <p class="card-text flex-grow-1">Espuma cremosa e latte art feita pelos nossos baristas.</p>
+                        <span class="badge-menu align-self-start"><i class="bi bi-fire me-1"></i>Mais pedido</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <img src="static/imagens/galeria4.jpeg" class="card-img-top" alt="Cappuccino de inverno">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="card-title mb-0">Cappuccino de Inverno</h5>
+                            <span class="preco">R$ 15,90</span>
+                        </div>
+                        <p class="card-text flex-grow-1">Com toque de canela e biscoitos amanteigados.</p>
+                        <span class="badge-menu align-self-start"><i class="bi bi-snow me-1"></i>Sazonal</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gelados -->
+        <h3 class="mt-5 mb-3"><i class="bi bi-snow2 me-2"></i>Gelados</h3>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <img src="static/imagens/galeria2.png" class="card-img-top" alt="Iced latte com macarons">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="card-title mb-0">Iced Latte</h5>
+                            <span class="preco">R$ 14,90</span>
+                        </div>
+                        <p class="card-text flex-grow-1">Leite gelado, espresso duplo e muito frescor. Acompanha macaron.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <img src="static/imagens/Cafe-gelado-1.jpg" class="card-img-top" alt="Café gelado">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="card-title mb-0">Café Gelado</h5>
+                            <span class="preco">R$ 13,90</span>
+                        </div>
+                        <p class="card-text flex-grow-1">Refrescante e aromático, perfeito para dias quentes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <img src="static/imagens/milkcoffee.jpeg" class="card-img-top" alt="Milk coffee">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="card-title mb-0">Milk Coffee</h5>
+                            <span class="preco">R$ 12,90</span>
+                        </div>
+                        <p class="card-text flex-grow-1">Suave, cremoso e docinho na medida certa.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <img src="static/imagens/cafe-personalizado.jpg" class="card-img-top" alt="Café personalizado">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="card-title mb-0">Personalizado</h5>
+                            <span class="preco">R$ 16,90</span>
+                        </div>
+                        <p class="card-text flex-grow-1">Monte o seu: escolha o grão, o leite e a finalização.</p>
+                        <span class="badge-menu align-self-start"><i class="bi bi-stars me-1"></i>Especial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Para viagem -->
+        <h3 class="mt-5 mb-3"><i class="bi bi-bag-heart me-2"></i>Para Viagem</h3>
+        <div class="row g-4 mb-3">
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <img src="static/imagens/img02.png" class="card-img-top" alt="Café para viagem">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="card-title mb-0">Café To-Go</h5>
+                            <span class="preco">R$ 9,90</span>
+                        </div>
+                        <p class="card-text flex-grow-1">Seu favorito em copo térmico, pronto para acompanhar o seu dia.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <img src="static/imagens/img01.png" class="card-img-top" alt="Café com vista">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="card-title mb-0">Café da Manhã</h5>
+                            <span class="preco">R$ 24,90</span>
+                        </div>
+                        <p class="card-text flex-grow-1">Combo com café especial, pão na chapa e suco natural.</p>
+                        <span class="badge-menu align-self-start"><i class="bi bi-sunrise me-1"></i>Até 11h</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    
+    <footer class="footer" id="sobre">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h4><i class="bi bi-cup-hot-fill me-2"></i>Sobre Nós</h4>
+                <p>Somos apaixonados por café e dedicados a trazer as melhores experiências para você. Do grão à xícara, cultivamos qualidade e tradição.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="menu.html">Nosso Menu</a></li>
+                    <li><a href="index.html">Página Inicial</a></li>
+                    
+                    <li><a href="https://github.com/FelipeAmorim09/cafeteria">Criar Conta</a></li>
+                    <li><a href="https://github.com/FelipeAmorim09/cafeteria">Entrar</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Redes Sociais</h4>
+                <p>Conecte-se com a gente:</p>
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Seu Café. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,740 @@
+/* ============================================================
+   Cafeteria — Design System
+   Paleta: creme #FDE7CF · marrom #64411d · pêssego #f1b993
+   Fontes: Playfair Display (títulos) · Poppins (texto)
+   ============================================================ */
+
+:root {
+    --creme: #FDE7CF;
+    --creme-claro: #FFF8F0;
+    --pessego: #f1b993;
+    --caramelo: #a86b32;
+    --marrom: #64411d;
+    --marrom-escuro: #402a13;
+    --cafe-profundo: #2b1d10;
+    --texto: #4a4038;
+    --texto-suave: #7d7168;
+    --branco: #ffffff;
+    --radius: 18px;
+    --sombra: 0 10px 30px rgba(64, 42, 19, 0.12);
+    --sombra-hover: 0 18px 40px rgba(64, 42, 19, 0.18);
+    --transicao: all 0.25s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--creme-claro);
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background-color: var(--creme-claro);
+    color: var(--texto);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: var(--marrom-escuro);
+}
+
+/* ============================================================
+   Botões
+   ============================================================ */
+.btn-cafe {
+    background-color: var(--marrom);
+    color: var(--creme);
+    border: 2px solid var(--marrom);
+    border-radius: 50rem;
+    padding: 0.45rem 1.4rem;
+    font-weight: 500;
+    transition: var(--transicao);
+}
+
+.btn-cafe:hover,
+.btn-cafe:focus {
+    background-color: var(--marrom-escuro);
+    border-color: var(--marrom-escuro);
+    color: var(--branco);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(64, 42, 19, 0.25);
+}
+
+.btn-outline-cafe {
+    background-color: transparent;
+    color: var(--marrom);
+    border: 2px solid var(--marrom);
+    border-radius: 50rem;
+    padding: 0.45rem 1.4rem;
+    font-weight: 500;
+    transition: var(--transicao);
+}
+
+.btn-outline-cafe:hover,
+.btn-outline-cafe:focus {
+    background-color: var(--marrom);
+    color: var(--creme);
+    transform: translateY(-2px);
+}
+
+/* ============================================================
+   Navbar
+   ============================================================ */
+.custom-navbar {
+    background-color: rgba(253, 231, 207, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 0 0 var(--radius) var(--radius);
+    box-shadow: 0 4px 18px rgba(64, 42, 19, 0.10);
+    padding: 0.5rem 0;
+}
+
+.navbar-brand img {
+    height: 46px;
+}
+
+.brand-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    color: var(--marrom);
+}
+
+.custom-navbar .nav-link {
+    color: var(--marrom);
+    font-weight: 500;
+    border-radius: 50rem;
+    padding: 0.45rem 1rem;
+    transition: var(--transicao);
+}
+
+.custom-navbar .nav-link:hover {
+    color: var(--marrom-escuro);
+    background-color: rgba(241, 185, 147, 0.45);
+}
+
+.custom-navbar .nav-link.active {
+    color: var(--creme);
+    background-color: var(--marrom);
+}
+
+.custom-navbar .navbar-toggler {
+    border: 2px solid var(--marrom);
+    border-radius: 12px;
+    padding: 0.35rem 0.6rem;
+}
+
+.custom-navbar .navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(168, 107, 50, 0.35);
+}
+
+/* Menu aberto no celular: itens espaçados e área de toque generosa */
+@media (max-width: 991.98px) {
+    .custom-navbar .navbar-collapse {
+        padding: 0.75rem 0.25rem 1rem;
+    }
+    .custom-navbar .nav-link {
+        padding: 0.7rem 1rem;
+        margin-bottom: 0.15rem;
+    }
+    .auth-actions {
+        padding-top: 0.5rem;
+        border-top: 1px solid rgba(100, 65, 29, 0.15);
+    }
+    .auth-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+    .nav-user {
+        padding-top: 0.5rem;
+        border-top: 1px solid rgba(100, 65, 29, 0.15);
+    }
+}
+
+/* Usuário logado na navbar */
+.profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--pessego);
+    transition: var(--transicao);
+}
+
+.nav-user .dropdown-toggle::after {
+    color: var(--marrom);
+}
+
+.nav-user:hover .profile-picture {
+    border-color: var(--caramelo);
+    transform: scale(1.06);
+}
+
+.username {
+    color: var(--marrom-escuro);
+    font-weight: 500;
+}
+
+.dropdown-menu {
+    border: none;
+    border-radius: 14px;
+    overflow: hidden;
+    padding: 0.4rem;
+}
+
+.dropdown-item {
+    border-radius: 10px;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.95rem;
+    transition: var(--transicao);
+}
+
+.dropdown-item:hover {
+    background-color: var(--creme);
+    color: var(--marrom-escuro);
+}
+
+/* ============================================================
+   Mensagens flash
+   ============================================================ */
+.flash-area {
+    margin-top: 0.75rem;
+}
+
+.flash-area .alert {
+    border: none;
+    border-radius: 14px;
+}
+
+/* ============================================================
+   Hero / Carrossel
+   ============================================================ */
+.hero {
+    max-width: 1320px;
+    margin: 1.25rem auto 0;
+    padding: 0 0.75rem;
+}
+
+.hero .carousel,
+.hero .carousel-item {
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.hero .carousel-image {
+    width: 100%;
+    height: min(72vh, 620px);
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(50%);
+}
+
+.hero .carousel-caption {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+}
+
+.hero .carousel-caption h1 {
+    color: #fff;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.55);
+}
+
+.hero .carousel-caption p {
+    color: #f5ead9;
+    font-size: clamp(1rem, 2.2vw, 1.25rem);
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6);
+    margin-bottom: 1.5rem;
+}
+
+/* ============================================================
+   Seções
+   ============================================================ */
+.section {
+    padding: 3.5rem 0 1rem;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 0.4rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--texto-suave);
+    margin-bottom: 2.2rem;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 4px;
+    margin: 0.7rem auto 0;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--pessego), var(--caramelo));
+}
+
+/* ============================================================
+   Cards (iguarias, menu, galeria)
+   ============================================================ */
+.card {
+    border: none;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    transition: var(--transicao);
+    background-color: var(--branco);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra-hover);
+}
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-weight: 700;
+    color: var(--marrom-escuro);
+}
+
+.card-text {
+    color: var(--texto-suave);
+}
+
+/* Preço no cartão do menu */
+.preco {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--caramelo);
+    white-space: nowrap;
+}
+
+.badge-menu {
+    background-color: var(--creme);
+    color: var(--marrom);
+    font-weight: 500;
+    border-radius: 50rem;
+    padding: 0.35em 0.9em;
+}
+
+/* ============================================================
+   Depoimentos
+   ============================================================ */
+.testimonial-card {
+    background-color: var(--branco);
+    border-radius: var(--radius);
+    box-shadow: var(--sombra);
+    padding: 1.6rem;
+    height: 100%;
+    transition: var(--transicao);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra-hover);
+}
+
+.testimonial-card .stars {
+    color: #e8a33d;
+    margin-bottom: 0.6rem;
+}
+
+.testimonial-card blockquote {
+    color: var(--texto);
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.testimonial-autor {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.autor-inicial {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--pessego), var(--caramelo));
+    color: var(--branco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.autor-nome {
+    font-weight: 600;
+    color: var(--marrom-escuro);
+    margin: 0;
+}
+
+/* ============================================================
+   Galeria
+   ============================================================ */
+.galeria-item {
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    position: relative;
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    display: block;
+}
+
+.galeria-item:hover img {
+    transform: scale(1.07);
+}
+
+/* ============================================================
+   Vídeo
+   ============================================================ */
+.video-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--sombra);
+}
+
+.video-wrapper video {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* ============================================================
+   Páginas de autenticação (login / cadastro)
+   ============================================================ */
+.auth-page {
+    background: linear-gradient(160deg, var(--creme) 0%, var(--creme-claro) 55%, #fff 100%);
+}
+
+.auth-wrapper {
+    min-height: calc(100vh - 90px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 960px;
+    background-color: var(--branco);
+    border-radius: 24px;
+    box-shadow: var(--sombra-hover);
+    overflow: hidden;
+}
+
+.auth-side {
+    background: linear-gradient(160deg, var(--marrom) 0%, var(--cafe-profundo) 100%);
+    color: var(--creme);
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.auth-side img {
+    height: 74px;
+    width: auto;
+    align-self: flex-start;
+    margin-bottom: 1.4rem;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35));
+}
+
+.auth-side h2 {
+    color: var(--creme);
+    font-size: 1.9rem;
+}
+
+.auth-side p {
+    color: var(--pessego);
+    margin-bottom: 0;
+}
+
+.auth-form {
+    padding: 2.5rem 2.25rem;
+}
+
+.auth-form h1 {
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+}
+
+.auth-form .form-label {
+    font-weight: 500;
+    color: var(--marrom-escuro);
+}
+
+.auth-form .form-control,
+.auth-form .form-select {
+    border-radius: 12px;
+    border: 1.5px solid #e8ddd2;
+    padding: 0.65rem 0.9rem;
+    transition: var(--transicao);
+}
+
+.auth-form .form-control:focus,
+.auth-form .form-select:focus {
+    border-color: var(--caramelo);
+    box-shadow: 0 0 0 3px rgba(168, 107, 50, 0.15);
+}
+
+.auth-form .input-group .btn {
+    border: 1.5px solid #e8ddd2;
+    border-left: none;
+    border-radius: 0 12px 12px 0;
+    color: var(--texto-suave);
+    background-color: var(--branco);
+}
+
+.auth-form .input-group .form-control {
+    border-radius: 12px 0 0 12px;
+    border-right: none;
+}
+
+.auth-link {
+    color: var(--caramelo);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.auth-link:hover {
+    color: var(--marrom);
+    text-decoration: underline;
+}
+
+/* Medidor de força da senha */
+.strength-meter {
+    height: 6px;
+    border-radius: 6px;
+    background-color: #efe6db;
+    overflow: hidden;
+    margin-top: 0.45rem;
+}
+
+.strength-meter > div {
+    height: 100%;
+    width: 0;
+    border-radius: 6px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Foto de perfil no cadastro / edição */
+.avatar-preview {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--creme);
+    box-shadow: var(--sombra);
+}
+
+/* ============================================================
+   Páginas de perfil
+   ============================================================ */
+.page-wrapper {
+    max-width: 860px;
+    margin: 2.5rem auto;
+    padding: 0 1rem;
+}
+
+.profile-card {
+    background-color: var(--branco);
+    border-radius: 24px;
+    box-shadow: var(--sombra);
+    padding: 2.25rem;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--creme);
+    box-shadow: var(--sombra);
+}
+
+.profile-header h1 {
+    font-size: 1.9rem;
+    margin-bottom: 0.2rem;
+}
+
+.info-linha {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px dashed #eadfd3;
+}
+
+.info-linha:last-child {
+    border-bottom: none;
+}
+
+.info-linha .rotulo {
+    font-weight: 600;
+    color: var(--marrom-escuro);
+    min-width: 160px;
+}
+
+.info-linha .valor {
+    color: var(--texto-suave);
+}
+
+/* ============================================================
+   Painel do administrador
+   ============================================================ */
+.admin-card {
+    background-color: var(--branco);
+    border-radius: var(--radius);
+    box-shadow: var(--sombra);
+    padding: 1.6rem;
+    margin-bottom: 1.6rem;
+}
+
+.admin-card h4 {
+    margin-bottom: 1rem;
+}
+
+.admin-card .table {
+    margin-bottom: 0;
+}
+
+.admin-card thead th {
+    color: var(--marrom-escuro);
+    border-bottom: 2px solid var(--creme);
+    white-space: nowrap;
+}
+
+/* ============================================================
+   Página de erro
+   ============================================================ */
+.erro-wrapper {
+    min-height: calc(100vh - 90px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.erro-codigo {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(4rem, 15vw, 8rem);
+    font-weight: 700;
+    color: var(--pessego);
+    line-height: 1;
+}
+
+/* ============================================================
+   Rodapé
+   ============================================================ */
+.footer {
+    background-color: #4a332a;
+    color: #FBE9E7;
+    padding: 3rem 0 1rem;
+    margin-top: 4rem;
+    font-size: 0.95rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.footer-about, .footer-links, .footer-social {
+    flex: 1;
+    margin: 15px;
+    min-width: 220px;
+}
+
+.footer h4 {
+    margin-bottom: 12px;
+    color: #FFCCBC;
+    font-size: 1.15rem;
+}
+
+.footer p {
+    color: #e8d5cf;
+}
+
+.footer-links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 8px;
+}
+
+.footer-links ul li a {
+    color: #FBE9E7;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: #FFAB91;
+}
+
+.footer-social .social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #FBE9E7;
+    font-size: 1.15rem;
+    text-decoration: none;
+    transition: var(--transicao);
+}
+
+.footer-social .social-icons a:hover {
+    background-color: var(--pessego);
+    color: var(--marrom-escuro);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 1rem;
+    color: #cdb7b0;
+}
